@@ -1,16 +1,16 @@
 # Output for ACR login server
 output "acr_url" {
-  value = azurerm_container_registry.container_registry.login_server
+  value = azurerm_container_registry.acr.login_server
 }
 
 # Output for ACR login username
 output "acr_uname" {
-  value = azurerm_container_registry.container_registry.admin_username
+  value = azurerm_container_registry.acr.admin_username
 }
 
 # Output for ACR login password
 output "acr_pass" {
-  value = azurerm_container_registry.container_registry.admin_password
+  value = azurerm_container_registry.acr.admin_password
   sensitive = true
 }
 
@@ -21,5 +21,5 @@ output "resource_group_name" {
 
 # Output for AKS Name
 output "aks_name" {
-  value = azurerm_kubernetes_cluster.cluster.name
+  value = azurerm_kubernetes_cluster.aks.name
 }
