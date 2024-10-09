@@ -91,30 +91,3 @@ jobs:
           AZURE_RG: ${{steps.tf.outputs.AZURE_RG}}
           AZURE_AKS: ${{steps.tf.outputs.AZURE_AKS}}
         run: ./scripts/deploy.sh
-      # #
-      # # Builds the Docker image.
-      # #
-      # - name: Build
-      #   run: ./scripts/build-image.sh
-
-      # #
-      # # Publishes the Docker image to the container registry.
-      # #
-      # - name: Publish
-      #   run: ./scripts/push-image.sh
-
-      # #
-      # # Installs Kubectl and connects it to the cluster.
-      # #
-      # # https://github.com/marketplace/actions/kubernetes-cli-kubectl
-      # #
-      # - uses: tale/kubectl-action@v1
-      #   with:
-      #     base64-kube-config: ${{ secrets.KUBE_CONFIG }}
-      #     kubectl-version: v1.30.3
-      
-      # #
-      # # Expands the configuration template and deploys the microservice.
-      # #
-      # - name: Deploy
-      #   run: ./scripts/deploy.sh
