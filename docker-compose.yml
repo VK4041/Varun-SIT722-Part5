@@ -1,0 +1,28 @@
+# Your Solution
+services:
+
+  book-catalog:
+    image: book-catalog:1
+    build: 
+      context: ./book_catalog
+      dockerfile: Dockerfile
+    container_name: book-catalog
+    ports:
+     - "8000:8000"
+    environment:
+      - PORT=8000
+      - DATABASE_URL=postgresql://varunvk_db_user:RBCwx49kCyCQ8mFinoHdWoQxJQBC7j0D@dpg-crui6llumphs73ens3ig-a.oregon-postgres.render.com/varunvk_db
+    restart: "no"
+
+  inventory_management:
+    image: inventory-management:1
+    build: 
+      context: ./inventory_management
+      dockerfile: Dockerfile
+    container_name: inventory_management
+    ports:
+     - "8001:8001"
+    environment:
+      - PORT=8001
+      - DATABASE_URL=postgresql://varunvk_db_user:RBCwx49kCyCQ8mFinoHdWoQxJQBC7j0D@dpg-crui6llumphs73ens3ig-a.oregon-postgres.render.com/varunvk_db
+    restart: "no"
