@@ -1,5 +1,13 @@
-# Your Solution
-# deploy both container to kuberneters. since I have used a single kubernetes deployment.yaml
-#file for both microservices
+#Deploy microservices
+set -u 
+: "$AZURE_RG"
+: "$AZURE_AKS"
 
-envsubst < ./scripts/kubernetes/deploymeny.yaml | kubectl apply -f -
+az aks get-credentials --resource-group $AZURE_RG --name $AZURE_AKS --overwrite-existing
+
+envsubst < ./scripts/kubernetes/deployment.yaml | kubectl apply -f - 
+
+#See cluster information
+kubectl get pods
+kubectl get deployments
+kubectl get services

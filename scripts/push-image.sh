@@ -1,10 +1,16 @@
-# Your Solution
-set -u # or set -o nounset
+#Push image to container registry after tagging it
+
+set -u 
 : "$CONTAINER_REGISTRY"
-: "$VERSION"
 : "$REGISTRY_UN"
 : "$REGISTRY_PW"
-: "$NAME"
 
 echo $REGISTRY_PW | docker login $CONTAINER_REGISTRY --username $REGISTRY_UN --password-stdin
-docker push $CONTAINER_REGISTRY/$NAME:1
+
+docker tag book-catalog:latest $CONTAINER_REGISTRY/book-catalog:1
+
+docker tag inventory-management:latest $CONTAINER_REGISTRY/inventory-management:1
+
+docker push $CONTAINER_REGISTRY/book-catalog:1
+
+docker push $CONTAINER_REGISTRY/inventory-management:1

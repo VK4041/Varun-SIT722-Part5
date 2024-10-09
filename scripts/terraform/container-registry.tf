@@ -1,8 +1,8 @@
 #Container registry which will be created on Azure Portal
 
-resource "azurerm_container_registry" "container_registry" {
+resource "azurerm_container_registry" "acr" {
   name                = var.app_name
-  resource_group_name = azurerm_resource_group.cloud_native_project.name
+  resource_group_name = azurerm_resource_group.res_grp.name
   location            = var.location
   admin_enabled       = true
   sku                 = "Basic"

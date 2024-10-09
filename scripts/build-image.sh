@@ -1,6 +1,4 @@
-set -u 
-: "$CONTAINER_REGISTRY"
-: "$NAME"
-: "$DIRECTORY"
+#Building docker image
 
-docker build -t $CONTAINER_REGISTRY/$NAME:1 --file ./$DIRECTORY/Dockerfile ./$DIRECTORY
+docker-compose --version
+docker-compose up -d --build
