@@ -7,6 +7,8 @@ on:
   push: 
     branches:
       - main
+    paths:
+      - book_catalog/**
 
   #
   # Allows deployment to be invoked manually through the GitHub Actions user interface.
@@ -23,6 +25,9 @@ jobs:
       CONTAINER_REGISTRY: ${{ secrets.CONTAINER_REGISTRY }}
       REGISTRY_UN: ${{ secrets.REGISTRY_UN }}
       REGISTRY_PW: ${{ secrets.REGISTRY_PW  }}
+      NAME: book-catalog
+      DIRECTORY: book_catalog
+
 
     steps:
       
@@ -33,13 +38,13 @@ jobs:
       # Builds the Docker image.
       #
       - name: Build
-        run: ./scripts/cd/build-image.sh
+        run: ./scripts/build-image.sh
 
       #
       # Publishes the Docker image to the container registry.
       #
       - name: Publish
-        run: ./scripts/cd/push-image.sh
+        run: ./scripts/push-image.sh
 
       #
       # Installs Kubectl and connects it to the cluster.
@@ -49,10 +54,10 @@ jobs:
       - uses: tale/kubectl-action@v1
         with:
           base64-kube-config: ${{ secrets.KUBE_CONFIG }}
-          kubectl-version: v1.24.2
+          kubectl-version: v1.30.3
       
       #
       # Expands the configuration template and deploys the microservice.
       #
       - name: Deploy
-        run: ./scripts/cd/deploy.sh
+        run: ./scripts/deploy.sh
