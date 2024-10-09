@@ -27,8 +27,10 @@ jobs:
 
       - name: Login to Azure
         uses: azure/login@v1
+        env:
+          Az_Login_Info: ${{secrets.AZ_CREDENTIALS}}
         with:
-          creds: ${{ secrets.AZ_CREDENTIALS }}
+          creds: ${{ env.Az_Login_Info }}
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
