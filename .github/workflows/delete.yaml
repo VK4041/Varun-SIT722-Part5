@@ -7,7 +7,6 @@ jobs:
   delete:
     runs-on: ubuntu-latest 
     env:
-      VERSION: ${{ github.sha }}
       AZURE_RG: "res_grp"
       AZURE_AKS: "vk4041"
 
@@ -24,5 +23,8 @@ jobs:
           base64-kube-config: ${{ secrets.KUBE_CONFIG }}
           kubectl-version: v1.30.3
       
+      - name: Set Execute Permission for Scripts
+        run: chmod +x  ./scripts/delete.sh
+
       - name: Delete deployment
         run: ./scripts/delete.sh
