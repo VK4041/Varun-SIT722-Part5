@@ -4,6 +4,7 @@ set -u
 : "$CONTAINER_REGISTRY"
 : "$REGISTRY_UN"
 : "$REGISTRY_PW"
+: "$VERSION"
 
 echo $REGISTRY_PW | docker login $CONTAINER_REGISTRY --username $REGISTRY_UN --password-stdin
 
