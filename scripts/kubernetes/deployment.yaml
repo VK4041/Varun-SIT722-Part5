@@ -22,7 +22,7 @@ spec:
         - name: PORT
           value: "8000"
         - name: DATABASE_URL
-          value: postgresql://varunvk_db_user:RBCwx49kCyCQ8mFinoHdWoQxJQBC7j0D@dpg-crui6llumphs73ens3ig-a.oregon-postgres.render.com/varunvk_db
+          value: postgresql://varunvk_db_w1bo_user:qS6DfvrqZkx4b1foV7ipy5rhUiRDabHa@dpg-cs3q39jtq21c738il970-a.oregon-postgres.render.com/varunvk_db_w1bo
       - name: inventory-management
         image: $CONTAINER_REGISTRY/inventory-management:1
         ports:
@@ -31,7 +31,7 @@ spec:
         - name: PORT
           value: "8001"
         - name: DATABASE_URL
-          value: postgresql://varunvk_db_user:RBCwx49kCyCQ8mFinoHdWoQxJQBC7j0D@dpg-crui6llumphs73ens3ig-a.oregon-postgres.render.com/varunvk_db
+          value: postgresql://varunvk_db_w1bo_user:qS6DfvrqZkx4b1foV7ipy5rhUiRDabHa@dpg-cs3q39jtq21c738il970-a.oregon-postgres.render.com/varunvk_db_w1bo
 
 ---
 apiVersion: v1

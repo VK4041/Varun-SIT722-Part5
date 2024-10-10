@@ -11,7 +11,7 @@ services:
      - "8000:8000"
     environment:
       - PORT=8000
-      - DATABASE_URL=postgresql://varunvk_db_user:RBCwx49kCyCQ8mFinoHdWoQxJQBC7j0D@dpg-crui6llumphs73ens3ig-a.oregon-postgres.render.com/varunvk_db
+      - DATABASE_URL=postgresql://varunvk_db_w1bo_user:qS6DfvrqZkx4b1foV7ipy5rhUiRDabHa@dpg-cs3q39jtq21c738il970-a.oregon-postgres.render.com/varunvk_db_w1bo
     restart: "no"
 
   inventory_management:
@@ -24,5 +24,5 @@ services:
      - "8001:8001"
     environment:
       - PORT=8001
-      - DATABASE_URL=postgresql://varunvk_db_user:RBCwx49kCyCQ8mFinoHdWoQxJQBC7j0D@dpg-crui6llumphs73ens3ig-a.oregon-postgres.render.com/varunvk_db
+      - DATABASE_URL=postgresql://varunvk_db_w1bo_user:qS6DfvrqZkx4b1foV7ipy5rhUiRDabHa@dpg-cs3q39jtq21c738il970-a.oregon-postgres.render.com/varunvk_db_w1bo
     restart: "no"
