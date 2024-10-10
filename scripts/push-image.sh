@@ -7,10 +7,10 @@ set -u
 
 echo $REGISTRY_PW | docker login $CONTAINER_REGISTRY --username $REGISTRY_UN --password-stdin
 
-docker tag book-catalog:1 $CONTAINER_REGISTRY/book-catalog:1
+docker tag book-catalog:$VERSION $CONTAINER_REGISTRY/book-catalog:$VERSION
 
-docker tag inventory-management:1 $CONTAINER_REGISTRY/inventory-management:1
+docker tag inventory-management:$VERSION $CONTAINER_REGISTRY/inventory-management:$VERSION
 
-docker push $CONTAINER_REGISTRY/book-catalog:1
+docker push $CONTAINER_REGISTRY/book-catalog:$VERSION
 
-docker push $CONTAINER_REGISTRY/inventory-management:1
+docker push $CONTAINER_REGISTRY/inventory-management:$VERSION

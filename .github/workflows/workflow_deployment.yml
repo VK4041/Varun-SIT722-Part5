@@ -29,6 +29,7 @@ jobs:
         uses: azure/login@v1
         env:
           Az_Login_Info: ${{secrets.AZ_CREDENTIALS}}
+          VERSION: ${{ github.sha }}
         with:
           creds: ${{ env.Az_Login_Info }}
 
@@ -90,4 +91,5 @@ jobs:
         env:
           AZURE_RG: ${{steps.tf.outputs.AZURE_RG}}
           AZURE_AKS: ${{steps.tf.outputs.AZURE_AKS}}
+          CONTAINER_REGISTRY: ${{ steps.tf.outputs.ACR_NAME }}
         run: ./scripts/deploy.sh
